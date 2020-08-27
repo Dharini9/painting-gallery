@@ -34,14 +34,8 @@ export class MusicComponent implements OnInit {
   }
 
   viewMusic(music) {
-    console.log(' music ::::::::::::::::: ', music);
     const dialogRef = this.dialog.open(ViewMusicComponent, {
       data: music
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-
     });
   }
 

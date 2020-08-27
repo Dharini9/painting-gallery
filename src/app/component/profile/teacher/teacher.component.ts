@@ -46,7 +46,6 @@ export class TeacherComponent implements OnInit {
 
   getMusic() {
     this.genericService.getMusic(this.musicId).subscribe(data => {
-      console.log('Data: :::::::::::::::', data);
       if (data) {
         this.teacherFormGroup.setValue(data);
       }
