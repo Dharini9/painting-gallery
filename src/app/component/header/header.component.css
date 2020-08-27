@@ -1,0 +1,28 @@
+/* ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    float: left;
+}
+
+li a.active-link,
+a:hover {
+    color: red;
+    box-shadow: 0px 0px 0px 0px black;
+    transition: box-shadow 0.6s linear;
+    margin: 0.1em;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    padding: 30px;
+    margin-left: 5px;
+    background-color: #dddddd;
+    border: 1px solid black;
+    text-decoration: none;
+} */

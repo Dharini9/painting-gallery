@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="instrumentImage">
+        <th mat-header-cell *matHeaderCellDef> Image Url </th>
+        <td mat-cell *matCellDef="let element"> <img [src]="element.instrumentImage" /> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="instrumentName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> InstrumentName </th>
+        <td mat-cell *matCellDef="let element"> {{element.instrumentName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teacherName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Teacher Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.teacherName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>
+        <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon (click)="viewMusic(element)" class="icon visibility">visibility</mat-icon>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

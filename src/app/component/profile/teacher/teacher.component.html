@@ -1,0 +1,55 @@
+<mat-card class="box">
+
+    <form [formGroup]="teacherFormGroup" (ngSubmit)="onFormSubmit()" class="example-form">
+        <mat-card-content>
+
+            <mat-form-field class="invisible example-full-width" [hidden]="true">
+                <input matInput placeholder="Id" formControlName="id">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Teacher Name" formControlName="teacherName" required>
+                <mat-error>
+                    Please provide a Teacher Name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Cost" formControlName="cost" min="0" inputmode="numeric" required>
+                <mat-error>
+                    Please provide a valid Cost
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Details" formControlName="details" required>
+                <mat-error>
+                    Please provide a Details
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Experience" min="0" inputmode="numeric" formControlName="experience"
+                    required>
+                <mat-error>
+                    Please provide a Experience
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Instrument Name" formControlName="instrumentName" required>
+                <mat-error>
+                    Please provide a Instrument Name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Instrument Url" formControlName="instrumentImage" required>
+                <mat-error>
+                    Please provide a Instrument Url
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <button color="accent" class="btn-block">Save</button>
+    </form>
+</mat-card>

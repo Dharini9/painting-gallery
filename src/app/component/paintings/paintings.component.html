@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div *ngIf="isArtistSelected">
+    <mat-card class="mat-full-card">
+        <mat-card-header class="mat-header">
+            <div mat-card-avatar class="example-header-image">
+                <img src="{{selectedPainting.artistImage}}" height="50px" width="50px" />
+            </div>
+            <mat-card-title>{{ selectedPainting.artistName }}
+                <a [routerLink]="['/profile']" style="text-align: left;"
+                    [queryParams]="{ id: selectedPainting.id, isPainting: true }">Edit
+                </a>
+            </mat-card-title>
+        </mat-card-header>
+        <img src="{{selectedPainting.image}}" width="100%" height="200px" alt="{{ selectedPainting.name }}">
+        <mat-card-content>
+            <p>{{ selectedPainting.name }}</p>
+            <p>{{ selectedPainting.paintingCost }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <mat-card class="example-card" *ngFor="let painting of paintings" (click)="displayCard(painting)">
+        <mat-card-header class="mat-header">
+            <div mat-card-avatar class="example-header-image">
+                <img src="{{painting.artistImage}}" height="50px" width="50px" />
+            </div>
+            <mat-card-title>{{ painting.artistName }}</mat-card-title>
+        </mat-card-header>
+        <img src="{{painting.image}}" width="100%" height="200px" alt="{{ painting.name }}">
+        <mat-card-content>
+            <p>{{ painting.name }}</p>
+            <p>{{ painting.paintingCost }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

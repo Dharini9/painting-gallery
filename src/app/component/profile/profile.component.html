@@ -1,0 +1,9 @@
+<app-header></app-header>
+<mat-tab-group [selectedIndex]="id && isMusic ? 1 : 0">
+    <mat-tab label="Artist" [disabled]="isMusic && id ? true : false">
+        <app-artist [artistId]="id" [loadProfile]="isPainting"></app-artist>
+    </mat-tab>
+    <mat-tab label="Teacher" [disabled]="isPainting && id ? true : false">
+        <app-teacher [musicId]="id" [loadProfile]="isMusic"></app-teacher>
+    </mat-tab>
+</mat-tab-group>
