@@ -1,0 +1,19 @@
+.mat-form-field {
+  display: block;
+  width: 50%;
+}
+
+.invisible {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+.btn-block {
+  width: 15%;
+    border: 1px solid currentColor;
+    line-height: 38px;
+    background: inherit;
+    border-radius: 4px;
+}

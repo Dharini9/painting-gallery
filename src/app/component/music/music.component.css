@@ -9,6 +9,7 @@ mat-button-toggle {
 
 table {
   width: 100%;
+  margin: 10px 0 0 0;
 }
 
 mat-icon {
@@ -24,13 +25,16 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
-.mat-header-cell, .mat-header-row, .mat-header-cell-def{
-  font-weight:bold;
-  font-size:13px;
-  color: rgb(31, 28, 28);
-  margin-bottom:5px;
-   top: 0;
-    position: sticky;
-    z-index: 1;
-    background-color: inherit;
+.mat-header-cell,
+.mat-header-row,
+.mat-header-cell-def {
+  font-weight: 300;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 5px;
+  top: 0;
+  position: sticky;
+  z-index: 1;
+  background-color: gainsboro;
+  /* background-color: lightgrey; */
 }

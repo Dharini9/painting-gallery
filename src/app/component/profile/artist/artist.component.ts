@@ -36,10 +36,12 @@ export class ArtistComponent implements OnInit {
   }
 
   onFormSubmit() {
-    if (!this.artistId) {
-      this.addArtist();
-    } else {
-      this.updateArtist();
+    if (this.artistFormGroup.valid) {
+      if (!this.artistId) {
+        this.addArtist();
+      } else {
+        this.updateArtist();
+      }
     }
   }
 

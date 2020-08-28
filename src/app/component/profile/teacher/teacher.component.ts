@@ -37,10 +37,12 @@ export class TeacherComponent implements OnInit {
   }
 
   onFormSubmit() {
-    if (!this.musicId) {
-      this.addMusic();
-    } else {
-      this.updateMusic();
+    if (this.teacherFormGroup.valid) {
+      if (!this.musicId) {
+        this.addMusic();
+      } else {
+        this.updateMusic();
+      }
     }
   }
 

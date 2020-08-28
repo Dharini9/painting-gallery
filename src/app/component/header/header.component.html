@@ -1,18 +1,9 @@
 <mat-toolbar color="primary" class="app-header">
     <div>Art Gallery</div>
-    <!-- <span class="nav-tool-items"> -->
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <a routerLink="/painting" routerLinkActive="active-link">Painting</a>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <a routerLink="/music">Music</a>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <a routerLink="/profile">Manage</a>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
-            (click)="logout()">
-            Logout
-        </button>
-    <!-- </span> -->
+    <a mat-button routerLink="/painting" routerLinkActive="active-link">Painting</a>
+    <a mat-button routerLink="/music" routerLinkActive="active-link">Music</a>
+    <a mat-button routerLink="/profile" routerLinkActive="active-link">Manage</a>
+    <button mat-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
+        Logout
+    </button>
 </mat-toolbar>
