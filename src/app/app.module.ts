@@ -25,6 +25,8 @@ import { ViewMusicComponent } from './component/music/view-music/view-music.comp
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { StoreModule } from './shared/store/store.module';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
-    InMemoryWebApiModule.forRoot(MockApiService)
+    StoreModule,
+    InMemoryWebApiModule.forRoot(MockApiService),
+    AkitaNgDevtools.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

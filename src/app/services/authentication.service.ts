@@ -10,7 +10,7 @@ export class AuthenticationService {
     }
 
     login(userName: string, password: string): boolean {
-        if (userName === 'Yash' && password === 'Yash@123') {
+        if (userName === 'admin' && password === 'admin') {
             localStorage.setItem('currentUser', JSON.stringify(userName));
             return true;
         } else {
