@@ -2,10 +2,12 @@ import { Store, StoreConfig } from '@datorama/akita';
 
 export interface PaintingsState {
     paintingsData: PaintingsDataSource[];
-    selectedPaintingsData: {
-        selectedPaintingID: number;
-        selectedPaintingData: PaintingsDataSource;
-    }
+    selectedPaintingsData: SelectedPaintingData;
+}
+
+export interface SelectedPaintingData {
+    selectedPaintingID: number;
+    selectedPaintingData: PaintingsDataSource;
 }
 
 export interface PaintingsDataSource {
@@ -17,7 +19,7 @@ export interface PaintingsDataSource {
     image: string;
 }
 
-export const defaultPaintingDataSource = {
+export const defaultPaintingDataSource: PaintingsDataSource = {
     id: 0,
     artistName: '',
     artistImage: '',
@@ -26,19 +28,21 @@ export const defaultPaintingDataSource = {
     image: ''
 };
 
+export const defaultSelectedPaintingData: SelectedPaintingData = {
+    selectedPaintingID: 0,
+    selectedPaintingData: defaultPaintingDataSource
+};
+
 export function createInitialState(): PaintingsState {
     return {
         paintingsData: [
             defaultPaintingDataSource
         ],
-        selectedPaintingsData: {
-            selectedPaintingID: 0,
-            selectedPaintingData: defaultPaintingDataSource
-        }
+        selectedPaintingsData: defaultSelectedPaintingData
     };
 }
 
-@StoreConfig({ name: 'paintings' })
+@StoreConfig({ name: 'paintings', resettable: true })
 export class PaintingsStore extends Store<PaintingsState> {
     constructor() {
         super(createInitialState());

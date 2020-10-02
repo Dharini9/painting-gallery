@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaintingsStore } from './paintings/paintings.store';
+import { MusicStore } from './music/music.store';
+import { ManageStore } from './manage/manage.store';
 
 @NgModule({
   declarations: [],
@@ -8,7 +10,9 @@ import { PaintingsStore } from './paintings/paintings.store';
     CommonModule
   ],
   providers: [
-    PaintingsStore
+    PaintingsStore,
+    MusicStore,
+    ManageStore
   ],
   exports: []
 })

@@ -44,12 +44,13 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Instrument Url" formControlName="instrumentImage" required>
-                <mat-error>
+                <input matInput placeholder="Instrument Url" formControlName="instrumentImage">
+                <!-- <mat-error>
                     Please provide a Instrument Url
-                </mat-error>
+                </mat-error> -->
             </mat-form-field>
         </mat-card-content>
         <button color="accent" class="btn-block">Save</button>
+        <button color="accent" class="btn-block" (click)="cancelMusicUpdation()">Cancel</button>
     </form>
 </mat-card>

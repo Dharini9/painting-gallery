@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { resetStores } from '@datorama/akita';
 
 @Injectable({
     providedIn: 'root'
@@ -6,7 +7,9 @@ import { Injectable } from '@angular/core';
 
 export class AuthenticationService {
 
-    constructor() {
+    constructor(
+        @Inject('persistStorage') private persistStorage
+    ) {
     }
 
     login(userName: string, password: string): boolean {
@@ -21,5 +24,14 @@ export class AuthenticationService {
     logout() {
         // remove user data from local storage for log out
         localStorage.removeItem('currentUser');
+        // Clear all
+        // this.persistStorage.clearStore();
+        // this.persistStorage.clearStore('paintings');
+
+        // Reset all stores
+        // resetStores();
+        resetStores({
+            exclude: ['music', 'paintings']
+        });
     }
 }

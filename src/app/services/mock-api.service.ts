@@ -14,10 +14,10 @@ export class MockApiService implements InMemoryDbService {
     ];
 
     const music: Music[] = [
-      { id: 5, instrumentName: 'Guitar', teacherName: 'Ray Anthony', cost: 500000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'US', experience: 5 },
-      { id: 6, instrumentName: 'Piano', teacherName: 'Penny', cost: 450000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'US', experience: 3 },
-      { id: 7, instrumentName: 'Bongo', teacherName: 'Sheldon Cooper', cost: 350000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'Canada', experience: 2 },
-      { id: 8, instrumentName: 'Flute', teacherName: 'Leonard Hofstadter', cost: 400000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'Canada', experience: 1 }
+      { id: 1, instrumentName: 'Guitar', teacherName: 'Ray Anthony', cost: 500000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'US', experience: 5 },
+      { id: 2, instrumentName: 'Piano', teacherName: 'Penny', cost: 450000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'US', experience: 3 },
+      { id: 3, instrumentName: 'Bongo', teacherName: 'Sheldon Cooper', cost: 350000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'Canada', experience: 2 },
+      { id: 4, instrumentName: 'Flute', teacherName: 'Leonard Hofstadter', cost: 400000, instrumentImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg', details: 'Canada', experience: 1 }
     ];
     return { paintings, music };
   }
