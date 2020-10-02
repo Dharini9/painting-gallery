@@ -5,6 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewMusicComponent } from './view-music/view-music.component';
+import { MusicService } from '../../shared/services/music.service';
+import { MusicQuery } from '../../shared/store/music/music.query';
+import { defaultMusicDataSource } from '@app/shared/store/music/music.store';
 
 @Component({
   selector: 'app-music',
@@ -13,30 +16,39 @@ import { ViewMusicComponent } from './view-music/view-music.component';
 })
 export class MusicComponent implements OnInit {
 
-  public musics: Music[];
-  displayedColumns: string[] = [ 'instrumentImage', 'instrumentName', 'teacherName', 'cost', 'details', 'action'];
-  dataSource;
-  user;
   @ViewChild(MatSort) sort: MatSort;
+
+  displayedColumns: string[] = ['instrumentImage', 'instrumentName', 'teacherName', 'cost', 'details', 'action'];
+  dataSource;
+  musicData: Music[] = [defaultMusicDataSource];
+  user;
 
   constructor(
     private genericService: GenericService,
+    private musicService: MusicService,
+    private musicQuery: MusicQuery,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
 
-    this.genericService.getMusics().subscribe((data: Music[]) => {
-      this.musics = data;
-      this.dataSource = new MatTableDataSource(data);
+    this.musicService.getMusicData().subscribe();
+    if (!this.musicQuery.hasEntity()) {
+    }
+
+    this.musicQuery.musicDetails$.subscribe(musicData => {
+      this.musicData = musicData;
+      this.dataSource = new MatTableDataSource(musicData);
       this.dataSource.sort = this.sort;
     });
   }
 
-  viewMusic(music) {
+  viewMusic(music: Music) {
+    this.musicService.setActiveMusicProfile(music.id);
     const dialogRef = this.dialog.open(ViewMusicComponent, {
       data: music
     });
   }
 
 }
+

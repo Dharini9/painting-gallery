@@ -3,6 +3,10 @@ import { GenericService } from '../../services/generic.service';
 import { Paintings } from '../../models/paintings.model';
 import { PaintingsQuery } from '@app/shared/store/paintings/paintings.query';
 import { PaintingsService } from '../../shared/services/paintings.service';
+import { ManageService } from '../../shared/services/manage.service';
+import { defaultSelectedPaintingData, SelectedPaintingData } from '@app/shared/store/paintings/paintings.store';
+import { EditOperations } from '@app/shared/enums/config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paintings',
@@ -14,13 +18,15 @@ import { PaintingsService } from '../../shared/services/paintings.service';
 export class PaintingsComponent implements OnInit {
 
   public isArtistSelected = false;
-  public selectedPainting;
+  public selectedPainting: SelectedPaintingData = defaultSelectedPaintingData;
   public paintings: Paintings[];
 
   constructor(
     private genericService: GenericService,
     private paintingsQuery: PaintingsQuery,
-    private paintingsService: PaintingsService
+    private paintingsService: PaintingsService,
+    private manageService: ManageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,16 +40,25 @@ export class PaintingsComponent implements OnInit {
       }
     });
 
-    this.paintingsQuery.paintingsDetails$.subscribe(state => {
-      if (state && state.selectedPaintingsData && state.selectedPaintingsData.selectedPaintingID) {
-        this.isArtistSelected = true;
-        this.selectedPainting = state.selectedPaintingsData.selectedPaintingData;
-      }
+    this.paintingsQuery.selectedPaintingDetail$.subscribe(selectedPaintingData => {
+      this.selectedPainting = selectedPaintingData;
     });
+  }
+
+  removeSelectedCard() {
+    this.paintingsService.removeSelectedCardData();
   }
 
   displayCard(data: Paintings) {
     this.paintingsService.storeSelectedPaintingData(data.id, data);
+  }
+
+  updateSelectedCardDetails() {
+    this.manageService.updateEditSectionDetails({
+      operationName: EditOperations.editPainting,
+      editDetailsID: this.selectedPainting.selectedPaintingID
+    });
+    this.router.navigate(['profile']);
   }
 
 }

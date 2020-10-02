@@ -8,8 +8,8 @@ import { PaintingsState, PaintingsStore } from './paintings.store';
 })
 export class PaintingsQuery extends Query<PaintingsState> {
 
-    // selectName$ = this.select('DisplayName');
     paintingsDetails$ = this.select();
+    selectedPaintingDetail$ = this.select('selectedPaintingsData');
 
     constructor(protected store: PaintingsStore) {
         super(store);
