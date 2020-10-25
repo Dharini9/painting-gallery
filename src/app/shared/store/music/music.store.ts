@@ -28,7 +28,12 @@ export function createInitialMusicState(): MusicState {
     };
 }
 
-@StoreConfig({ name: 'music', cache: { ttl: 15000 }, resettable: true })
+/** This is entity store
+ * We can reset the state setting property resettable
+ * We can set the time to live for cache - Here I have set time 15 minutes,
+ * after 15 minutes it will call API and refresh the storage with new data
+ */
+@StoreConfig({ name: 'music', cache: { ttl: 900000 }, resettable: true })
 export class MusicStore extends EntityStore<MusicState> {
     constructor() {
         super();

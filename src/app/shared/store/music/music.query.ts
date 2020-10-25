@@ -6,6 +6,7 @@ import { MusicState, MusicStore } from './music.store';
 @Injectable({
     providedIn: StoreModule
 })
+/** Query config provides sorting of the data */
 @QueryConfig({
     sortBy: 'id',
     sortByOrder: Order.ASC
@@ -18,6 +19,11 @@ export class MusicQuery extends QueryEntity<MusicState> {
         super(store);
     }
 
+    /**
+     * It returns single entity object
+     * @param ID Entitiy ID
+     * getEntity is the method of QueryEntity
+     */
     musicDataByID(ID: number) {
         return this.getEntity(ID);
     }

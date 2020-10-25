@@ -42,6 +42,7 @@ export function createInitialState(): PaintingsState {
     };
 }
 
+/** this is custom store */
 @StoreConfig({ name: 'paintings', resettable: true })
 export class PaintingsStore extends Store<PaintingsState> {
     constructor() {

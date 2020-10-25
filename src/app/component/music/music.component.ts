@@ -44,6 +44,7 @@ export class MusicComponent implements OnInit {
   }
 
   viewMusic(music: Music) {
+    // For setting active Entity
     this.musicService.setActiveMusicProfile(music.id);
     const dialogRef = this.dialog.open(ViewMusicComponent, {
       data: music

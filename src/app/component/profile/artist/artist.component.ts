@@ -28,7 +28,7 @@ export class ArtistComponent implements OnInit {
       artistImage: ['', Validators.required],
       paintingCost: ['', Validators.required],
       name: ['', Validators.required],
-      image: ['', Validators.required]
+      image: ['https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg']
     });
     if (this.artistId && this.artistId > 0 && this.loadProfile) {
       this.getArtist();

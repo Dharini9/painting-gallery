@@ -1,9 +1,9 @@
 <app-header></app-header>
 <mat-tab-group [selectedIndex]="(operationName === editOperations.editMusic && id) ? 1 : 0">
-    <mat-tab label="Artist" [disabled]="operationName === editOperations.editMusic && id">
+    <mat-tab label="Painter" [disabled]="operationName === editOperations.editMusic && id">
         <app-artist [artistId]="id" [loadProfile]="operationName === editOperations.editPainting"></app-artist>
     </mat-tab>
-    <mat-tab label="Teacher" [disabled]="operationName === editOperations.editPainting && id">
+    <mat-tab label="Music Teacher" [disabled]="operationName === editOperations.editPainting && id">
         <app-teacher [musicId]="id" [loadProfile]="operationName === editOperations.editMusic"></app-teacher>
     </mat-tab>
 </mat-tab-group>

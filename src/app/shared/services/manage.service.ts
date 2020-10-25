@@ -10,6 +10,7 @@ export class ManageService {
     private manageStore: ManageStore
   ) { }
 
+  /** Updating which section's data to be updated Paitings or Music */
   updateEditSectionDetails(data: EditOperationDetails) {
     this.manageStore.update(state => {
       return {

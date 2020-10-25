@@ -53,6 +53,7 @@ export class PaintingsComponent implements OnInit {
     this.paintingsService.storeSelectedPaintingData(data.id, data);
   }
 
+  /** On click on edit button - need to redirect to manage tab and updating the data */
   updateSelectedCardDetails() {
     this.manageService.updateEditSectionDetails({
       operationName: EditOperations.editPainting,

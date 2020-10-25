@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
 
+  /** For setting default details of Edit and removing active entity */
   setDefaultEditDetails() {
     this.manageService.updateEditSectionDetails(defaultEditOperationDetails);
     this.musicService.removeActiveMusicProfile();

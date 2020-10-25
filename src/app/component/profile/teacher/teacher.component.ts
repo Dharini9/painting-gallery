@@ -36,6 +36,7 @@ export class TeacherComponent implements OnInit {
       instrumentName: ['', Validators.required],
       instrumentImage: ['https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg']
     });
+    // It will show if we have any active entity in music store - default method oF Entity store
     if (this.musicQuery.hasActive()) {
       this.getMusic();
     }
@@ -52,6 +53,7 @@ export class TeacherComponent implements OnInit {
   }
 
   getMusic() {
+    // Used to get single music teacher data for filling in the form
     const musicData = this.musicQuery.musicDataByID(this.musicQuery.getActiveId());
     if (musicData) {
       this.teacherFormGroup.setValue(musicData);
@@ -59,11 +61,6 @@ export class TeacherComponent implements OnInit {
   }
 
   addMusic() {
-    // this.genericService.addMusic(this.teacherFormGroup.value).subscribe(data => {
-    //   if (data) {
-    //     this.backToMusic();
-    //   }
-    // });
     const teacherData: Music = this.teacherFormGroup.value;
     const newEntityID = this.musicQuery.getCount() + 1;
     teacherData.id = newEntityID;
@@ -72,11 +69,6 @@ export class TeacherComponent implements OnInit {
   }
 
   updateMusic() {
-    // this.genericService.updateMusic(this.teacherFormGroup.value).subscribe(data => {
-    //   if (data) {
-    //     this.backToMusic();
-    //   }
-    // });
     this.musicService.updateMusicData(this.teacherFormGroup.value);
     this.backToMusic();
   }

@@ -11,7 +11,9 @@ export class PaintingsService {
     private paintingsStore: PaintingsStore
   ) { }
 
+  /** For storing paitings data */
   storePaintingsData(paintingsDataSource: Paintings[]) {
+    // If the store is custom and we need to cache the data - need to setHasCache true
     this.paintingsStore.setHasCache(true);
     this.paintingsStore.update(state => {
       return {
@@ -21,6 +23,7 @@ export class PaintingsService {
     });
   }
 
+  /** For storing selected paitings data */
   storeSelectedPaintingData(selectedPaintingID: number, selectedPaintingData: Paintings) {
     this.paintingsStore.update(state => {
       return {
@@ -33,6 +36,7 @@ export class PaintingsService {
     });
   }
 
+  /** For removing selected paitings data */
   removeSelectedCardData() {
     this.paintingsStore.update(state => {
       return {

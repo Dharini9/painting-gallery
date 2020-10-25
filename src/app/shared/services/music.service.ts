@@ -17,6 +17,10 @@ export class MusicService {
     private genericService: GenericService
   ) { }
 
+  /**
+   * This method is used to check if the data in cache is valid then returns cached data,
+   * if ttl which we have set is invalidate the cached data then it calls an API for getting new data
+   */
   getMusicData() {
     return this.musicQuery.selectHasCache().pipe(
       switchMap(hasCache => {
@@ -26,31 +30,35 @@ export class MusicService {
          return hasCache ? EMPTY : apiCall;
       })
     );
-    // const getMusicDataRequest = this.genericService.getMusics().pipe(
-    //   tap(data => {
-    //     this.storeMusicData(data);
-    //   })
-    // );
-    // return this.musicQuery.getHasCache() ? EMPTY : getMusicDataRequest; // request
   }
 
+  /**
+   * For Storing music data to store
+   * The entity store bydefault provides cache so we do not need to set setHasCache like the custom store
+   * @param musicDataSource
+   */
   storeMusicData(musicDataSource: Music[]) {
     this.musicStore.set(musicDataSource);
   }
 
+  /** It is used to set the active entity ID */
   setActiveMusicProfile(profileId: number) {
     this.musicStore.setActive(profileId);
   }
 
+  /** It is used to remove the active entity ID */
   removeActiveMusicProfile() {
     this.musicStore.setActive(null);
   }
 
+  /** For adding new music data to the Music store from Manage Teacher */
   addMusicData(musicData: Music) {
-    this.musicStore.add(musicData, { prepend: true });
+    this.musicStore.add(musicData);
   }
 
+  /** Updating music teacher's data */
   updateMusicData(musicData: Music) {
+    // For entity updation need to pass entity ID as well as data
     this.musicStore.update(musicData.id, musicData);
   }
 }
